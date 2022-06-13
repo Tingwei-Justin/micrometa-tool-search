@@ -14,7 +14,7 @@
   }
   ```
 */
-import { Dialog, Menu, Transition } from '@headlessui/react'
+import { Dialog, Transition } from '@headlessui/react'
 import {
     BellIcon,
     CalendarIcon,
@@ -29,16 +29,16 @@ import {
 import { SearchIcon } from '@heroicons/react/solid'
 import { Fragment, useState } from 'react'
 import Cards from '../components/Cards'
-
+import { Browers, DataTracking, DEX, HotTools, ICOs, NFTs, Others, Wallets } from '../constant/tools'
 const navigation = [
     { name: 'Hot tools', href: '#', icon: HomeIcon, current: true },
-    { name: 'Dex', href: '#', icon: UsersIcon, current: false },
-    { name: 'Data Tracking', href: '#', icon: FolderIcon, current: false },
-    { name: 'ICO/IDO/Airdrop', href: '#', icon: CalendarIcon, current: false },
-    { name: 'Blockchain browser', href: '#', icon: InboxIcon, current: false },
-    { name: 'Digital Wallet', href: '#', icon: ChartBarIcon, current: false },
-    { name: 'NFT Tools', href: '#', icon: ChartBarIcon, current: false },
-    { name: 'Others', href: '#', icon: ChartBarIcon, current: false },
+    { name: 'Dex', href: '/#dex', icon: UsersIcon, current: false },
+    { name: 'Data Tracking', href: '/#data', icon: FolderIcon, current: false },
+    { name: 'ICO/IDO/Airdrop', href: '/#icos', icon: CalendarIcon, current: false },
+    { name: 'Blockchain browser', href: '/#browsers', icon: InboxIcon, current: false },
+    { name: 'Digital Wallet', href: '/#wallets', icon: ChartBarIcon, current: false },
+    { name: 'NFT Tools', href: '/#nfts', icon: ChartBarIcon, current: false },
+    { name: 'Others', href: '/#others', icon: ChartBarIcon, current: false },
 ]
 const userNavigation = [
     { name: 'Your Profile', href: '#' },
@@ -211,7 +211,7 @@ export default function Example() {
                                         <input
                                             id="search-field"
                                             className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
-                                            placeholder="Search"
+                                            placeholder="Search (coming soon)"
                                             type="search"
                                             name="search"
                                         />
@@ -228,7 +228,7 @@ export default function Example() {
                                 </button>
 
                                 {/* Profile dropdown */}
-                                <Menu as="div" className="ml-3 relative">
+                                {/* <Menu as="div" className="ml-3 relative">
                                     <div>
                                         <Menu.Button className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                             <span className="sr-only">Open user menu</span>
@@ -266,7 +266,7 @@ export default function Example() {
                                             ))}
                                         </Menu.Items>
                                     </Transition>
-                                </Menu>
+                                </Menu> */}
                             </div>
                         </div>
                     </div>
@@ -278,18 +278,37 @@ export default function Example() {
                             </div>
                             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
                                 <div className='flex flex-col gap-8'>
-                                    <div>
-                                        <Cards />
+                                    <div id="hottools">
+                                        <Title text={"Hot tools"} />
+                                        <Cards tools={HotTools} />
                                     </div>
-
-                                    <div>
-                                        <Cards />
+                                    <div id="dex">
+                                        <Title text={"Dex"} />
+                                        <Cards tools={DEX} />
                                     </div>
-                                    <div>
-                                        <Cards />
+                                    <div id="data">
+                                        <Title text={"Data tracking"} />
+                                        <Cards tools={DataTracking} />
                                     </div>
-                                    <div>
-                                        <Cards />
+                                    <div id="icos">
+                                        <Title text={"ICO/IDO/Airdrop"} />
+                                        <Cards tools={ICOs} />
+                                    </div>
+                                    <div id="browers">
+                                        <Title text={"Blockchain Browers"} />
+                                        <Cards tools={Browers} />
+                                    </div>
+                                    <div id="wallet">
+                                        <Title text={"Digital Wallet"} />
+                                        <Cards tools={Wallets} />
+                                    </div>
+                                    <div id="nft">
+                                        <Title text={"NFT Tools"} />
+                                        <Cards tools={NFTs} />
+                                    </div>
+                                    <div id="others">
+                                        <Title text={"Others"} />
+                                        <Cards tools={Others} />
                                     </div>
                                 </div>
                             </div>
@@ -299,5 +318,11 @@ export default function Example() {
             </div>
         </>
     )
+}
+
+function Title({ text }) {
+    return <div className='text-xl tracking-wider font-bold text-gray-700 my-3'>
+        {text}
+    </div>
 }
 
