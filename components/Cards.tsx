@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Cards({ tools }) {
     return (
         <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
@@ -10,11 +12,14 @@ export default function Cards({ tools }) {
                         <img className="h-10 w-10 rounded-full" src={tool.imageUrl} alt="" />
                     </div>
                     <div className="flex-1 min-w-0">
-                        <a href="#" className="focus:outline-none">
-                            <span className="absolute inset-0" aria-hidden="true" />
-                            <p className="text-sm font-medium text-gray-900">{tool.name}</p>
-                            <p className="text-sm text-gray-500 truncate">{tool.description}</p>
-                        </a>
+                        <Link href={tool.uri} >
+                            <a target="_blank" className="focus:outline-none">
+                                <span className="absolute inset-0" aria-hidden="true" />
+                                <p className="text-sm font-medium text-gray-900">{tool.name}</p>
+                                <p className="text-sm text-gray-500 truncate">{tool.description}</p>
+                            </a>
+                        </Link>
+
                     </div>
                 </div>
             ))}
