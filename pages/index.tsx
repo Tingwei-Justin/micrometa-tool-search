@@ -31,12 +31,14 @@ import { Fragment, useState } from 'react'
 import Cards from '../components/Cards'
 
 const navigation = [
-    { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-    { name: 'Team', href: '#', icon: UsersIcon, current: false },
-    { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-    { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-    { name: 'Documents', href: '#', icon: InboxIcon, current: false },
-    { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
+    { name: 'Hot tools', href: '#', icon: HomeIcon, current: true },
+    { name: 'Dex', href: '#', icon: UsersIcon, current: false },
+    { name: 'Data Tracking', href: '#', icon: FolderIcon, current: false },
+    { name: 'ICO/IDO/Airdrop', href: '#', icon: CalendarIcon, current: false },
+    { name: 'Blockchain browser', href: '#', icon: InboxIcon, current: false },
+    { name: 'Digital Wallet', href: '#', icon: ChartBarIcon, current: false },
+    { name: 'NFT Tools', href: '#', icon: ChartBarIcon, current: false },
+    { name: 'Others', href: '#', icon: ChartBarIcon, current: false },
 ]
 const userNavigation = [
     { name: 'Your Profile', href: '#' },
@@ -108,6 +110,7 @@ export default function Example() {
                                         </div>
                                     </Transition.Child>
                                     <div className="flex-shrink-0 flex items-center px-4">
+                                        MicroMeta Tools
                                         {/* <img
                                             className="h-8 w-auto"
                                             src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
@@ -152,7 +155,8 @@ export default function Example() {
                 <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
                     {/* Sidebar component, swap this element with another sidebar if you like */}
                     <div className="flex-1 flex flex-col min-h-0 bg-gray-800">
-                        <div className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900">
+                        <div className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900 text-white text-2xl">
+                            MicroMeta Tools
                             {/* <img
                                 className="h-8 w-auto"
                                 src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
